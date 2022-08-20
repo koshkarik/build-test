@@ -22,7 +22,12 @@
           - name: devops-example
         # Делаем доступным снаружи
         ports:
-          - 3000:3000
+          - 8080:8080 
         env: # Настраиваем
           NODE_ENV: production
+          DATABASE_NAME: postgres
+          DATABASE_USERNAME: doadmin
+          DATABASE_PASSWORD: AVNS_wWU2usRBxpPgldJIYwi
+          DATABASE_PORT: 25060
+          DATABASE_HOST: db-postgresql-fra1-48994-do-user-11933137-0.b.db.ondigitalocean.com
 
