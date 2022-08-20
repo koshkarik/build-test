@@ -26,9 +26,8 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: koshkarik/hexlet-test-deploy:latest 
+      - name: build
+        run: make build
+
+      - name: push
+        run: make push
