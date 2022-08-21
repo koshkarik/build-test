@@ -1,4 +1,4 @@
-localhost {
+localhost, koshkarik.xyz {
   log {
     format json
   }
