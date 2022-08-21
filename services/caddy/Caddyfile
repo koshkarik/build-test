@@ -12,5 +12,14 @@ localhost, koshkarik.xyz {
   # app – имя сервиса в docker-compose.yml
   reverse_proxy {
     to app:8080
+      @error status 502 # Только 502 ошибки
+    handle_response @error {
+      # Путь по которому хранятся html-файлы для разных ошибок
+      root * /app/services/caddy/error_pages
+      # Для всех 502 запросов отдаем файл 502.html
+      # Имя произвольное
+      rewrite * /502.html
+      file_server
+    }
   } 
 }
