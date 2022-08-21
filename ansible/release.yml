@@ -32,3 +32,14 @@
           DATABASE_PORT: "25060"
           DATABASE_HOST: db-postgresql-fra1-48994-do-user-11933137-0.b.db.ondigitalocean.com
 
+    - community.docker.docker_container: 
+        name: caddy # имя используется как домен
+        image: "koshkarik/hexlet-test-deploy-caddy:{{ version }}"
+        restart_policy: always
+        state: started
+        networks: # Добавляем контейнер в сеть
+          - name: devops-example
+        ports:
+          - 80:80
+          - 443:443
+
