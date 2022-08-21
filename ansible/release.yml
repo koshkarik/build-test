@@ -22,8 +22,8 @@
         networks:
           - name: devops-example
         # Делаем доступным снаружи
-        ports:
-          - 8080:8080 
+        # ports:
+        #  - 8080:8080 
         env: # Настраиваем
           NODE_ENV: production
           DATABASE_NAME: postgres
