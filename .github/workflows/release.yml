@@ -25,3 +25,6 @@ jobs:
 
       # Заливаем новый тег
       - run: docker push ${{ env.APP_IMAGE_NAME }}:${{ github.ref_name }}
+      - run: docker pull koshkarik/hexlet-test-deploy-caddy:latest
+      - run: docker tag koshkarik/hexlet-test-deploy-caddy:latest koshkarik/hexlet-test-deploy-caddy:${{ github.ref_name }}
+      - run: docker push koshkarik/hexlet-test-deploy-caddy:${{ github.ref_name }}
